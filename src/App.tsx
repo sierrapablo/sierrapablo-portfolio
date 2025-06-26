@@ -1,5 +1,5 @@
 import { useEffect, useState, Suspense, lazy } from 'react';
-import './app.css';
+import './App.css';
 import Loader from './components/Loader';
 
 const Hero = lazy(() => import('./components/Hero'));
