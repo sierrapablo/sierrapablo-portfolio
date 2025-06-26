@@ -4,7 +4,7 @@ services:
     container_name: portfolio-sierrapablo
     restart: unless-stopped
     ports:
-      - "5173:5173"
+      - "5173:5174"
     volumes:
       - .:/app
     environment:
