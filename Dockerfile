@@ -11,8 +11,8 @@ RUN rm -rf /root/.npm /app/.npm
 FROM node:20-alpine
 WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/dist/client ./dist/client
-COPY --from=builder /app/dist/server ./dist/server
+COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package*.json ./
+RUN npm install --omit=dev
 EXPOSE 5173
 CMD ["node", "server.js"]
