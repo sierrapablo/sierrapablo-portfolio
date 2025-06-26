@@ -1,31 +1,106 @@
-import './App.css'
-import { Suspense, lazy } from 'react'
-import reactLogo from './assets/react.svg'
+import { useEffect, useState, Suspense, lazy } from 'react';
+import './app.css';
+import Loader from './components/Loader';
 
-// Works also with SSR as expected
-const Card = lazy(() => import('./Card'))
+const Hero = lazy(() => import('./components/Hero'));
+const Logs = lazy(() => import('./components/Logs'));
+const Tools = lazy(() => import('./components/Tools'));
+const About = lazy(() => import('./components/About'));
+const Contact = lazy(() => import('./components/Contact'));
+const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+  const [isClient, setIsClient] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
+  const [startFadeOut, setStartFadeOut] = useState(false);
+
+  const [showLogs, setShowLogs] = useState(false);
+  const [showTools, setShowTools] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
+  const [showContact, setShowContact] = useState(false);
+  const [showFooter, setShowFooter] = useState(false);
+
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (isClient) {
+      const timeout = setTimeout(() => {
+        setStartFadeOut(true);
+      }, 2000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isClient]);
+
+  const handleFadeOutComplete = () => {
+    setShowLoader(false);
+  };
+
+  useEffect(() => {
+    if (!showLoader) {
+      const timeouts: NodeJS.Timeout[] = [];
+
+      timeouts.push(setTimeout(() => setShowLogs(true), 100));
+      timeouts.push(setTimeout(() => setShowTools(true), 300));
+      timeouts.push(setTimeout(() => setShowAbout(true), 500));
+      timeouts.push(setTimeout(() => setShowContact(true), 700));
+      timeouts.push(setTimeout(() => setShowFooter(true), 900));
+
+      return () => timeouts.forEach(clearTimeout);
+    }
+  }, [showLoader]);
+
+  if (!isClient) {
+    return (
+      <div className="bg-neutral-900 min-h-screen flex flex-col px-6 py-8">
+        <Loader />
       </div>
-      <h1>Vite + React</h1>
+    );
+  }
 
-      <Suspense fallback={<p>Loading card component...</p>}>
-        <Card />
-      </Suspense>
+  return (
+    <div className="bg-neutral-900 min-h-screen flex flex-col px-6 py-8 relative">
+      {showLoader && (
+        <Loader isFadingOut={startFadeOut} onFadeOutComplete={handleFadeOutComplete} />
+      )}
 
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      {isClient && (
+        <>
+          <Suspense fallback={null}>
+            <Hero />
+          </Suspense>
+
+          <div className="max-w-2xl mx-auto space-y-10">
+            <Suspense fallback={null}>
+              <div className={`transition-opacity duration-700 ${showLogs ? 'opacity-100' : 'opacity-0'}`}>
+                <Logs />
+              </div>
+
+              <div className={`transition-opacity duration-700 ${showTools ? 'opacity-100' : 'opacity-0'}`}>
+                <Tools />
+              </div>
+
+              <div className={`transition-opacity duration-700 ${showAbout ? 'opacity-100' : 'opacity-0'}`}>
+                <About />
+              </div>
+
+              <div className={`transition-opacity duration-700 ${showContact ? 'opacity-100' : 'opacity-0'}`}>
+                <Contact />
+              </div>
+            </Suspense>
+          </div>
+
+          <Suspense fallback={null}>
+            <div className={`transition-opacity duration-700 ${showFooter ? 'opacity-100' : 'opacity-0'}`}>
+              <Footer />
+            </div>
+          </Suspense>
+        </>
+      )}
+    </div>
   )
 }
 
