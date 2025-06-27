@@ -42,7 +42,7 @@ export default function Tools(): JSX.Element {
           {tools.map((tool, index) => (
             <li
               key={index}
-              className="bg-neutral-800 p-2 border border-neutral-600 rounded flex items-center gap-2 transition-transform duration-200 ease-in-out hover:scale-105 hover:border-amber-500 hover:bg-emerald-400 hover:text-neutral-800"
+              className="bg-neutral-800 p-2 border border-neutral-600 rounded flex items-center gap-2 transition-transform duration-200 ease-in-out hover:scale-105 hover:border-amber-500"
             >
               <img src={tool.icon} className="w-5 h-5" alt={tool.label} />
               {tool.label}

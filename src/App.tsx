@@ -7,6 +7,7 @@ const Logs = lazy(() => import('./components/Logs'));
 const Tools = lazy(() => import('./components/Tools'));
 const About = lazy(() => import('./components/About'));
 const Contact = lazy(() => import('./components/Contact'));
+const Projects = lazy(() => import('./components/Projects'));
 const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   const [showTools, setShowTools] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [showContact, setShowContact] = useState(false);
+  const [showProjects, setShowProjects] = useState(false);
   const [showFooter, setShowFooter] = useState(false);
 
 
@@ -46,8 +48,9 @@ function App() {
       timeouts.push(setTimeout(() => setShowLogs(true), 100));
       timeouts.push(setTimeout(() => setShowTools(true), 300));
       timeouts.push(setTimeout(() => setShowAbout(true), 500));
-      timeouts.push(setTimeout(() => setShowContact(true), 700));
-      timeouts.push(setTimeout(() => setShowFooter(true), 900));
+      timeouts.push(setTimeout(() => setShowProjects(true), 700));
+      timeouts.push(setTimeout(() => setShowContact(true), 900));
+      timeouts.push(setTimeout(() => setShowFooter(true), 1100));
 
       return () => timeouts.forEach(clearTimeout);
     }
@@ -87,6 +90,10 @@ function App() {
                 <About />
               </div>
 
+              <div className={`transition-opacity duration-700 ${showProjects ? 'opacity-100' : 'opacity-0'}`}>
+                <Projects />
+              </div>
+              
               <div className={`transition-opacity duration-700 ${showContact ? 'opacity-100' : 'opacity-0'}`}>
                 <Contact />
               </div>
