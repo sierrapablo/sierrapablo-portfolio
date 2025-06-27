@@ -12,7 +12,7 @@ export default function Footer(): JSX.Element {
           rel="noopener noreferrer"
           className="underline hover:text-amber-500 transition"
         >
-          view source
+          view source code
         </a>
       </p>
     </footer>
