@@ -44,7 +44,7 @@ export default function Projects(): JSX.Element {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-neutral-800 p-2 border border-neutral-600 rounded-md flex items-center gap-2 transition-transform duration-200 ease-in-out hover:scale-105 hover:border-amber-500 flex flex-col justify-between"
+              className="bg-neutral-800 p-2 border border-neutral-600 rounded-md flex gap-2 transition-transform duration-200 ease-in-out hover:scale-105 hover:border-amber-500 flex flex-col justify-between"
             >
               <div>
                 <h3 className="text-lg text-emerald-400 font-medium mb-1">{project.title}</h3>
