@@ -36,11 +36,14 @@ export default function Logs(): JSX.Element {
     <section>
       <h2 className="text-lg font-semibold text-amber-500 mb-3">[ Recent logs ]</h2>
       <ul className="font-mono text-sm text-emerald-400 space-y-2">
-        {logEntries.map((log, index) => (
-          <li key={index}>
-            [{log.date}] {log.message}
-          </li>
-        ))}
+        {logEntries.map((log, index) => {
+          const formattedDate = log.date.slice(0, 10);
+          return (
+            <li key={index}>
+              [{formattedDate}] {log.message}
+            </li>
+          );
+        })}
       </ul>
       <div id="rotating-fish-container" className="ascii-art mt-4 text-center"></div>
     </section>
