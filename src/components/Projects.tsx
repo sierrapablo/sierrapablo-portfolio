@@ -37,7 +37,7 @@ export default function Projects(): JSX.Element {
       {loading ? (
         <p className="text-gray-400">Loading projects...</p>
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2">
           {projects.map((project) => (
             <a
               key={project.title}
