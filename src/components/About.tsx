@@ -1,8 +1,36 @@
-import { JSX } from "react";
+import { JSX, useState, useEffect } from "react";
 
-const aboutText: string = "Life isn’t about playing it safe or waiting for everything to make sense. It’s about diving headfirst into the chaos — embracing the mess inside and out. Real strength shows up when you face your weirdest fears and screw-ups, then turn them into your own kind of fuel. Becoming who you really are isn’t about fitting in; it’s about breaking the mold and making your own rules. So yeah, life throws curveballs, it’s uncomfortable, and sometimes it sucks — but that’s where the magic happens. Keep pushing, keep messing up, and keep creating your own meaning in the madness.";
+type AboutResponse = {
+  content: string;
+};
 
 export default function About(): JSX.Element {
+  const [aboutText, setAboutText] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchAbout() {
+      try {
+        const response = await fetch("https://api.sierrapablo.dev/about");
+        if (!response.ok) {
+          throw new Error("Failed to fetch about content");
+        }
+        const data: AboutResponse = await response.json();
+        setAboutText(data.content);
+      } catch (err: any) {
+        setError(err.message || "Unknown error");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchAbout();
+  }, []);
+
+  if (loading) return <p className="text-gray-400">Loading content...</p>;
+  if (error) return <p className="text-red-500">Error: {error}</p>;
+
   return (
     <section>
       <h2 className="text-lg font-semibold text-amber-500 mb-3">[ A bit more human, I guess ]</h2>

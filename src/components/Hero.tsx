@@ -1,30 +1,45 @@
 import { JSX, useEffect, useState } from "react";
 import { useTypedMessage } from "../hooks/useTypedMessage";
 
-export default function Hero(): JSX.Element {
-    const messages = [
-        "Welcome, stranger!",
-        "I break things. I build things. Sometimes they work.",
-        "This site? It's more personal than professional — like my dotfiles.",
-        "If you found this page, congratulations! You’ve officially wasted more time than most people do online.",
-        "I use Arch, btw",
-        "This site looks like a mess? Perfect, you’re in the right place.",
-        "If you’re reading this, you probably should be working.",
-        "Thanks for stopping by. Your boredom is my entertainment.",
-        "Error 404: Your motivation not found.",
-        "Just because you’re unique doesn’t mean you’re useful.",
-        "Keep scrolling, maybe you’ll find something interesting... or not.",
-        "Not all who wander are lost, but you definitely are.",
-    ];
+type Message = {
+    text: string;
+};
 
+export default function Hero(): JSX.Element {
+    const [messages, setMessages] = useState<string[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
     const [startTyping, setStartTyping] = useState(false);
 
     useEffect(() => {
-        const timeout = setTimeout(() => setStartTyping(true), 3500);
-        return () => clearTimeout(timeout);
+        async function fetchMessages() {
+            try {
+                const response = await fetch("https://api.sierrapablo.dev/messages");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch messages");
+                }
+                const data: Message[] = await response.json();
+                setMessages(data.map((m) => m.text));
+            } catch (err: any) {
+                setError(err.message || "Unknown error");
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchMessages();
     }, []);
 
+    useEffect(() => {
+        if (!loading && !error) {
+            const timeout = setTimeout(() => setStartTyping(true), 3500);
+            return () => clearTimeout(timeout);
+        }
+    }, [loading, error]);
+
     const typed = useTypedMessage(messages, 35, 1500, 1000, startTyping);
+
+    if (loading) return <p className="text-gray-400">Loading messages...</p>;
+    if (error) return <p className="text-red-500">Error: {error}</p>;
 
     return (
         <section className="mb-12">

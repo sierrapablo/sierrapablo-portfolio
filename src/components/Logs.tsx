@@ -1,12 +1,37 @@
-import { JSX } from "react";
+import { JSX, useState, useEffect } from "react";
 
-const logEntries: { date: string; message: string }[] = [
-  { date: "2025-06-26", message: "rewrote this page again instead of sleeping" },
-  { date: "2025-06-20", message: "spent 3 hours debugging a typo — classic" },
-  { date: "2025-06-18", message: "spent hours configuring Neovim instead of coding" },
-];
+type LogEntry = {
+  date: string;
+  message: string;
+};
 
 export default function Logs(): JSX.Element {
+  const [logEntries, setLogEntries] = useState<LogEntry[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchLogs() {
+      try {
+        const response = await fetch("https://api.sierrapablo.dev/logs");
+        if (!response.ok) {
+          throw new Error("Failed to fetch logs");
+        }
+        const data: LogEntry[] = await response.json();
+        setLogEntries(data);
+      } catch (err: any) {
+        setError(err.message || "Unknown error");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchLogs();
+  }, []);
+
+  if (loading) return <p className="text-gray-400">Loading logs...</p>;
+  if (error) return <p className="text-red-500">Error: {error}</p>;
+
   return (
     <section>
       <h2 className="text-lg font-semibold text-amber-500 mb-3">[ Recent logs ]</h2>
