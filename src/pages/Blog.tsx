@@ -8,6 +8,7 @@ export default function Blog(): JSX.Element {
   const [error, setError] = useState<string | null>(null)
 
   const [startFadeOut, setStartFadeOut] = useState(false)
+  const [showContent, setShowContent] = useState(false)
 
   /**
    * Fetches blog posts from the API and updates the state.
@@ -36,6 +37,9 @@ export default function Blog(): JSX.Element {
 
   function handleFadeOutComplete() {
     setLoading(false)
+    setTimeout(() => {
+      setShowContent(true)
+    }, 100)
   }
 
   function goHome() {
@@ -64,7 +68,11 @@ export default function Blog(): JSX.Element {
 
   return (
     <div className="bg-neutral-900 min-h-screen">
-      <section className="max-w-3xl mx-auto px-4 py-10">
+      <section
+        className={`max-w-3xl mx-auto px-4 py-10 transition-opacity duration-700 ${
+          showContent ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
         <h2 className="text-xl font-bold text-amber-500 mb-6">[ Latest blog posts ]</h2>
 
         <ul className="grid gap-6">
