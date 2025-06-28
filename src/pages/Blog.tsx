@@ -16,7 +16,7 @@ export default function Blog(): JSX.Element {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const response = await fetch('http://api.sierrapablo.dev/posts')
+        const response = await fetch('https://api.sierrapablo.dev/posts')
         if (!response.ok) {
           throw new Error('Failed to fetch posts')
         }
