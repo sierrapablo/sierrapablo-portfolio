@@ -18,7 +18,7 @@ export default function PostPage(): JSX.Element {
   useEffect(() => {
     async function fetchPostData() {
       try {
-        
+
         const res = await fetch('https://api.sierrapablo.dev/posts')
         if (!res.ok) throw new Error('Failed to fetch post metadata')
 
@@ -47,7 +47,7 @@ export default function PostPage(): JSX.Element {
   if (loading) {
     return (
       <div className="bg-neutral-800 min-h-screen flex items-center justify-center px-6 py-8">
-        <Loader isFadingOut={false} onFadeOutComplete={() => {}} />
+        <Loader isFadingOut={false} onFadeOutComplete={() => { }} />
       </div>
     )
   }
@@ -67,21 +67,23 @@ export default function PostPage(): JSX.Element {
   }
 
   return (
-    <div className="bg-neutral-900 min-h-screen px-6 py-12 mx-auto">
-      <h1 className="text-2xl font-bold text-amber-500 mb-4">{post.title}</h1>
-      <p className="text-sm text-gray-400 mb-6">
-        {new Date(post.created_at).toLocaleDateString()} • {post.author}
-      </p>
-      <article className="text-gray-300 markdown">
-        <ReactMarkdown>{content}</ReactMarkdown>
-      </article>
-      <div className="mt-10 text-center">
-        <a
-          href="/blog"
-          className="px-4 py-2 bg-amber-500 text-neutral-900 rounded hover:bg-amber-600 transition"
-        >
-          Back to blog
-        </a>
+    <div className='bg-neutral-900 min-h-screen'>
+      <div className="max-w-3xl bg-neutral-900 min-h-screen px-6 py-12 mx-auto">
+        <h1 className="text-2xl font-bold text-amber-500 mb-4">{post.title}</h1>
+        <p className="text-sm text-gray-400 mb-6">
+          {new Date(post.created_at).toLocaleDateString()} • {post.author}
+        </p>
+        <article className="text-gray-300 markdown">
+          <ReactMarkdown>{content}</ReactMarkdown>
+        </article>
+        <div className="mt-10 text-center">
+          <a
+            href="/blog"
+            className="px-4 py-2 bg-amber-500 text-neutral-900 rounded hover:bg-amber-600 transition"
+          >
+            Back to blog
+          </a>
+        </div>
       </div>
     </div>
   )
