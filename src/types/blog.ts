@@ -5,4 +5,5 @@ export interface BlogPost {
   author: string
   tags: string[]
   created_at: string
+  filepath: string
 }

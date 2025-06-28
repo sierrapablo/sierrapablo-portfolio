@@ -1,6 +1,7 @@
 import { JSX, useState, useEffect } from 'react'
 import type { BlogPost } from '../types/blog'
 import Loader from '../components/Loader'
+import { Link } from 'react-router-dom'
 
 export default function Blog(): JSX.Element {
   const [posts, setPosts] = useState<BlogPost[]>([])
@@ -69,24 +70,25 @@ export default function Blog(): JSX.Element {
   return (
     <div className="bg-neutral-900 min-h-screen">
       <section
-        className={`max-w-3xl mx-auto px-4 py-10 transition-opacity duration-700 ${
-          showContent ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`max-w-3xl mx-auto px-4 py-10 transition-opacity duration-700 ${showContent ? 'opacity-100' : 'opacity-0'
+          }`}
       >
         <h2 className="text-xl font-bold text-amber-500 mb-6">[ Latest blog posts ]</h2>
 
         <ul className="grid gap-6">
           {posts.map((post) => (
-            <li
-              key={post.slug}
-              className="bg-neutral-800 border border-neutral-700 rounded-xl p-5 hover:border-amber-500 transition"
-            >
-              <h3 className="text-lg font-semibold text-white mb-1">{post.title}</h3>
-              <p className="text-sm text-gray-400 mb-2">{post.summary}</p>
-              <p className="text-xs text-gray-500">
-                {new Date(post.created_at).toLocaleDateString()}
-              </p>
-            </li>
+            <Link key={post.slug} to={`/post/${post.slug}`}>
+              <li
+                key={post.slug}
+                className="bg-neutral-800 border border-neutral-700 rounded-xl p-5 hover:border-amber-500 transition"
+              >
+                <h3 className="text-lg font-semibold text-white mb-1">{post.title}</h3>
+                <p className="text-sm text-gray-400 mb-2">{post.summary}</p>
+                <p className="text-xs text-gray-500">
+                  {new Date(post.created_at).toLocaleDateString()}
+                </p>
+              </li>
+            </Link>
           ))}
         </ul>
 

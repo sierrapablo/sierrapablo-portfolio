@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+.markdown>* {
+  all: revert;
+  text-align: justify;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
