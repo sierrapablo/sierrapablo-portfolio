@@ -6,7 +6,7 @@ export default function Contact(): JSX.Element {
   return (
     <section>
       <h2 className="text-lg font-semibold text-amber-500 mb-3">
-        [ Reach me ]
+        [ Contáctame ]
       </h2>
       <div className="flex space-x-4 text-sm text-white">
         <a
@@ -25,9 +25,9 @@ export default function Contact(): JSX.Element {
         </a>
       </div>
       <p className="text-xs text-gray-500 mt-3">
-        Also valid:{" "}
+        También válido:{" "}
         <code>
-          curl sierrapablo.dev/contact (I'm still working on this feature)
+          curl sierrapablo.dev/contact (aún estoy trabajando en esta función)
         </code>
       </p>
     </section>

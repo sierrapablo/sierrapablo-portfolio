@@ -35,7 +35,7 @@ export default function Projects(): JSX.Element {
       <h2 className="text-lg font-semibold text-amber-500 mb-3">[ Projects ]</h2>
 
       {loading ? (
-        <p className="text-gray-400">Loading projects...</p>
+        <p className="text-gray-400">Cargando proyectos...</p>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2">
           {projects.map((project) => (

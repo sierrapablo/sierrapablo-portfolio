@@ -3,8 +3,8 @@ import { JSX } from "react";
 export default function Footer(): JSX.Element {
   return (
     <footer className="mt-16 text-center text-xs text-gray-500">
-      <p>~ last update: 2025 — version 0.2-dev</p>
-      <p>I'm becoming insane at this point...</p>
+      <p>~ última actualización: 2025 — versión 0.2.1-dev</p>
+      <p>Creo que ya me estoy volviendo loco en este punto...</p>
       <p>
         <a
           href="https://github.com/sierrapablo/sierrapablo-portfolio"
@@ -12,7 +12,7 @@ export default function Footer(): JSX.Element {
           rel="noopener noreferrer"
           className="underline hover:text-amber-500 transition"
         >
-          view source code
+          ver código fuente
         </a>
       </p>
     </footer>

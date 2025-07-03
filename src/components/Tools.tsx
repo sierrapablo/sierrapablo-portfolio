@@ -32,11 +32,11 @@ export default function Tools(): JSX.Element {
   return (
     <section>
       <h2 className="text-lg font-semibold text-amber-500 mb-3">
-        [ Tools I kinda know how to use ]
+        [ Herramientas que medio sé usar ]
       </h2>
 
       {loading ? (
-        <p className="text-gray-400">Loading tools...</p>
+        <p className="text-gray-400">Cargando herramientas...</p>
       ) : (
         <ul className="cursor-default font-bold grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm text-gray-300">
           {tools.map((tool, index) => (

@@ -60,7 +60,7 @@ export default function PostPage(): JSX.Element {
           href="/blog"
           className="px-4 py-2 bg-amber-500 text-neutral-900 rounded hover:bg-amber-600 transition"
         >
-          Back to blog
+          Volver al blog
         </a>
       </div>
     )
@@ -81,7 +81,7 @@ export default function PostPage(): JSX.Element {
             href="/blog"
             className="px-4 py-2 bg-amber-500 text-neutral-900 rounded hover:bg-amber-600 transition"
           >
-            Back to blog
+            Volver al blog
           </a>
         </div>
       </div>

@@ -28,12 +28,12 @@ export default function About(): JSX.Element {
     fetchAbout();
   }, []);
 
-  if (loading) return <p className="text-gray-400">Loading content...</p>;
+  if (loading) return <p className="text-gray-400">Cargando contenido...</p>;
   if (error) return <p className="text-red-500">Error: {error}</p>;
 
   return (
     <section>
-      <h2 className="text-lg font-semibold text-amber-500 mb-3">[ A bit more human, I guess ]</h2>
+      <h2 className="text-lg font-semibold text-amber-500 mb-3">[ Un poco más humano, supongo ]</h2>
       <p className="text-sm text-gray-300 leading-relaxed text-justify">
         {aboutText}
       </p>

@@ -42,7 +42,7 @@ export default function Hero(): JSX.Element {
     window.location.href = "/blog";
   }
 
-  if (loading) return <p className="text-gray-400">Loading messages...</p>;
+  if (loading) return <p className="text-gray-400">Cargando mensajes...</p>;
   if (error) return <p className="text-red-500">Error: {error}</p>;
 
   return (
@@ -62,7 +62,7 @@ export default function Hero(): JSX.Element {
                   Pablo Sierra - Software Engineer
                 </h1>
                 <p className="text-sm text-gray-400">
-                  ~/about — probably overthinking something right now
+                  ~/about — probablemente estoy dándole demasiadas vueltas a una tontería más
                 </p>
               </div>
             </div>
@@ -71,7 +71,7 @@ export default function Hero(): JSX.Element {
               className="cursor-pointer px-4 py-2 bg-amber-500 text-neutral-900 rounded hover:bg-amber-600 transition"
               aria-label="Go to blog"
             >
-              Go to blog
+              Blog
             </button>
           </div>
 

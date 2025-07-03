@@ -62,7 +62,7 @@ export default function Blog(): JSX.Element {
           onClick={goHome}
           className="px-4 py-2 bg-amber-500 text-neutral-900 rounded hover:bg-amber-600 transition"
         >
-          Go back home
+          Volver al inicio
         </button>
       </div>
     )
@@ -97,7 +97,7 @@ export default function Blog(): JSX.Element {
             onClick={goHome}
             className="px-4 py-2 bg-amber-500 text-neutral-900 rounded cursor-pointer hover:bg-amber-600 transition"
           >
-            Go back home
+            Volver al inicio
           </button>
         </div>
       </section>
