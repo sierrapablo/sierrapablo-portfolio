@@ -73,7 +73,7 @@ export default function Blog(): JSX.Element {
         className={`max-w-3xl mx-auto px-4 py-10 transition-opacity duration-700 ${showContent ? 'opacity-100' : 'opacity-0'
           }`}
       >
-        <h2 className="text-xl font-bold text-amber-500 mb-6">[ Latest blog posts ]</h2>
+        <h2 className="text-xl font-bold text-amber-500 mb-6">[ Últimas publicaciones ]</h2>
 
         <ul className="grid gap-6">
           {posts.map((post) => (
