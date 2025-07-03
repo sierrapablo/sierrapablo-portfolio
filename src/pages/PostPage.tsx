@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import type { BlogPost } from '../types/blog'
 import Loader from '../components/Loader'
 import ReactMarkdown from 'react-markdown'
+import Footer from '../components/Footer'
 
 /**
  * Renders a blog post page by slug.
@@ -85,6 +86,7 @@ export default function PostPage(): JSX.Element {
           </a>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

@@ -2,6 +2,7 @@ import { JSX, useState, useEffect } from 'react'
 import type { BlogPost } from '../types/blog'
 import Loader from '../components/Loader'
 import { Link } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 export default function Blog(): JSX.Element {
   const [posts, setPosts] = useState<BlogPost[]>([])
@@ -101,6 +102,7 @@ export default function Blog(): JSX.Element {
           </button>
         </div>
       </section>
+      <Footer />
     </div>
   )
 }
