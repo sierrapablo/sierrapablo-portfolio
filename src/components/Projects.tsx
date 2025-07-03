@@ -32,7 +32,7 @@ export default function Projects(): JSX.Element {
 
   return (
     <section>
-      <h2 className="text-lg font-semibold text-amber-500 mb-3">[ Projects ]</h2>
+      <h2 className="text-lg font-semibold text-amber-500 mb-3">[ Proyectos ]</h2>
 
       {loading ? (
         <p className="text-gray-400">Cargando proyectos...</p>
