@@ -33,6 +33,8 @@ import avatarImg from "../assets/avatar.webp";
             </p>
           </div>
         </div>
+        {
+          /*
         <a
           href="/blog"
           class="cursor-pointer px-4 py-2 bg-amber-500 text-neutral-900 rounded hover:bg-amber-600 transition"
@@ -40,19 +42,22 @@ import avatarImg from "../assets/avatar.webp";
         >
           Blog
         </a>
+        */
+        }
       </div>
 
       <!-- Texto con efecto typewriter -->
       <p class="text-sm text-cyan-300 font-mono whitespace-pre-wrap">
-        <span id="typed" class="after:content-['|'] after:animate-blink after:ml-[2px]"></span>
+        <span
+          id="typed"
+          class="after:content-['|'] after:animate-blink after:ml-[2px]"></span>
       </p>
     </div>
   </div>
 
   <!-- Script para efecto tipeado -->
   <script>
-    import { startTyping } from '../scripts/typewriter.js';
+    import { startTyping } from "../scripts/typewriter.js";
     startTyping();
   </script>
-
 </section>
