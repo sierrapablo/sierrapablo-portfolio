@@ -1,16 +1,28 @@
+---
+import { Image } from "astro:assets";
+
+import avatarImg from "../assets/avatar.webp";
+---
+
 <section class="mb-12">
   <div class="max-w-2xl mx-auto">
     <div
       class="min-h-64 sm:min-h-44 bg-neutral-800 p-6 rounded-lg border border-neutral-600 shadow"
     >
-      {/* Header: Imagen, texto y botón */}
       <div class="flex justify-between items-center mb-4">
         <div class="flex items-center space-x-4">
-          <img
-            src="https://unavatar.io/github/sierrapablo"
-            alt="pfp"
-            class="w-14 h-14 rounded-full border-2 border-amber-500 shadow-lg hover:scale-105 transition-transform duration-200"
-          />
+          <a
+            href="https://github.com/sierrapablo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src={avatarImg}
+              alt="pfp"
+              class="w-14 h-14 rounded-full border-2 border-amber-500 shadow-lg hover:scale-105 transition-transform duration-200"
+              loading={"eager"}
+            />
+          </a>
           <div>
             <h1 class="text-xl font-bold text-amber-500">
               Pablo Sierra - Software Engineer
@@ -30,14 +42,17 @@
         </a>
       </div>
 
-      {/* Mensaje tipeado */}
-      {
-        /* 
-          <p class="text-sm text-cyan-300 font-mono whitespace-pre-wrap">
-            {typed}
-          </p>
-          */
-      }
+      <!-- Texto con efecto typewriter -->
+      <p class="text-sm text-cyan-300 font-mono whitespace-pre-wrap">
+        <span id="typed" class="after:content-['|'] after:animate-blink after:ml-[2px]"></span>
+      </p>
     </div>
   </div>
+
+  <!-- Script para efecto tipeado -->
+  <script>
+    import { startTyping } from '../scripts/typewriter.js';
+    startTyping();
+  </script>
+
 </section>
