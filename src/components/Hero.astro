@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import { slide } from "astro:transitions";
 
-import avatarImg from "../assets/avatar.webp";
+import avatarImg from "../assets/pfp.webp";
 ---
 
 <section class="flex flex-col items-center flex-1 w-full" transition:animate={slide({ duration: "1s" })}>
@@ -43,7 +43,7 @@ import avatarImg from "../assets/avatar.webp";
       <Image
         src={avatarImg}
         alt="pfp"
-        class="rounded-none shadow-lg"
+        class="rounded-none"
         loading={"eager"}
       />
     </a>
