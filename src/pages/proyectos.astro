@@ -1,0 +1,20 @@
+---
+import Navbar from "../components/Navbar.astro";
+import ProjectGrid from "../components/ProjectGrid.astro";
+import Footer from "../components/Footer.astro";
+import Layout from "../layouts/Layout.astro";
+
+const HEAD_CONTENT = {
+  title: "Inicio | Pablo Sierra - Desarrollador web",
+  description:
+    "Bienvenido a la página personal de Pablo Sierra, desarrollador de software con enfoque en big data y frontend moderno.",
+};
+---
+
+<Layout {...HEAD_CONTENT}>
+  <main class="h-dvh flex flex-col">
+    <Navbar />
+    <ProjectGrid />
+    <Footer />
+  </main>
+</Layout>
