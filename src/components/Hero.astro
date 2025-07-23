@@ -5,8 +5,8 @@ import { slide } from "astro:transitions";
 import avatarImg from "../assets/avatar.webp";
 ---
 
-<section class="flex flex-col items-center" transition:animate={slide({ duration: "1s" })}>
-  <div class="h-dvh md:w-auto lg:max-w-[1240px] bg-neutral-100 py-6 px-12 flex flex-col md:flex-row justify-between items-center gap-4">
+<section class="flex flex-col items-center flex-1 w-full" transition:animate={slide({ duration: "1s" })}>
+  <div class="flex-1 md:w-auto lg:max-w-[1240px] bg-neutral-100 py-6 px-12 flex flex-col md:flex-row justify-between items-center gap-4">
     <div class="flex-1">
       <p class="text-4xl font-bold text-neutral-800 py-6">
         Desarrollo tecnología práctica para transformar <span class="text-blue-500">desafíos en
