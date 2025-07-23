@@ -1,7 +1,7 @@
 const messages = [
   "Desarrollador de software freelance.",
-  "Automatizo procesos, creo herramientas y despliego y mantengo infraestructuras.",
-  "Explora mi blog para ver mis últimos experimentos.",
+  "Automatizo procesos, creo herramientas, despliego y mantengo infraestructuras.",
+  "Explora mis proyectos.",
 ];
 
 function type() {

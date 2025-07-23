@@ -1,57 +1,49 @@
 ---
 import { Image } from "astro:assets";
+import { slide } from "astro:transitions";
 
 import avatarImg from "../assets/avatar.webp";
 ---
 
-<section class="mb-12">
-  <div class="max-w-2xl mx-auto">
-    <div
-      class="min-h-64 sm:min-h-44 bg-neutral-800 p-6 rounded-lg border border-neutral-600 shadow"
-    >
-      <div class="flex justify-between items-center mb-4">
-        <div class="flex items-center space-x-4">
-          <a
-            href="https://github.com/sierrapablo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src={avatarImg}
-              alt="pfp"
-              class="w-14 h-14 rounded-full border-2 border-amber-500 shadow-lg hover:scale-105 transition-transform duration-200"
-              loading={"eager"}
-            />
-          </a>
-          <div>
-            <h1 class="text-xl font-bold text-amber-500">
-              Pablo Sierra - Software Engineer
-            </h1>
-            <p class="text-sm text-gray-400">
-              ~/about — Desarrollo tecnología práctica para transformar desafíos en oportunidades.
-            </p>
-          </div>
-        </div>
-        {
-          /*
-        <a
-          href="/blog"
-          class="cursor-pointer px-4 py-2 bg-amber-500 text-neutral-900 rounded hover:bg-amber-600 transition"
-          aria-label="Go to blog"
-        >
-          Blog
-        </a>
-        */
-        }
-      </div>
-
-      <!-- Texto con efecto typewriter -->
-      <p class="text-sm text-cyan-300 font-mono whitespace-pre-wrap">
+<section class="flex flex-col items-center" transition:animate={slide({ duration: "1s" })}>
+  <div class="h-dvh md:w-auto lg:max-w-[1240px] bg-neutral-100 py-6 px-12 flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="flex-1">
+      <p class="text-4xl font-bold text-neutral-800 py-6">
+        Desarrollo tecnología práctica para transformar <span class="text-blue-500">desafíos en
+        oportunidades.</span>
+      </p>
+      <p class="min-h-32 text-lg text-neutral-700 font-semibold">
         <span
           id="typed"
-          class="after:content-['|'] after:animate-blink after:ml-[2px]"></span>
+          class="after:content-['|'] after:animate-blink after:ml-[2px]"
+        >
+        </span>
       </p>
+      <div class="flex flex-row justify-center gap-2">
+        <input
+          type="email"
+          placeholder="Tu dirección de email"
+          class="px-4 py-2 rounded-md shadow bg-neutral-50 text-neutral-700 placeholder-neutral-500 focus:outline-none w-full sm:w-auto"
+          required
+        >
+        </input>
+        <a href="/" class="bg-blue-500 text-neutral-100 min-w-[150px] text-center px-6 py-2 font-bold rounded-md hover:bg-blue-300 hover:text-blue-500 ease-in-out duration-300">
+          Contacta
+        </a>
+      </div>
     </div>
+    <a
+      href="https://github.com/sierrapablo"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Image
+        src={avatarImg}
+        alt="pfp"
+        class="rounded-none shadow-lg"
+        loading={"eager"}
+      />
+    </a>
   </div>
 
   <!-- Script para efecto tipeado -->
