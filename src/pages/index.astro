@@ -1,6 +1,7 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
+import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 
 const HEAD_CONTENT = {
@@ -11,8 +12,9 @@ const HEAD_CONTENT = {
 ---
 
 <Layout {...HEAD_CONTENT}>
-  <main class="h-dvh flex flex-col bg-blue-600">
+  <main class="h-dvh flex flex-col">
     <Navbar />
     <Hero />
+    <Footer />
   </main>
 </Layout>
