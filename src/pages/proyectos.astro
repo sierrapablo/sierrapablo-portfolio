@@ -4,6 +4,8 @@ import ProjectGrid from "../components/ProjectGrid.astro";
 import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 
+export const prerender = true
+
 const HEAD_CONTENT = {
   title: "Inicio | Pablo Sierra - Desarrollador web",
   description:
@@ -14,7 +16,9 @@ const HEAD_CONTENT = {
 <Layout {...HEAD_CONTENT}>
   <main class="h-dvh flex flex-col">
     <Navbar />
-    <ProjectGrid />
+    <ProjectGrid server:defer>
+      <span slot="fallback" class="text-xl opacity-70">Cargando...</span>
+    </ProjectGrid>
     <Footer />
   </main>
 </Layout>

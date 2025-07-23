@@ -1,5 +1,6 @@
 ---
 import { slide } from "astro:transitions";
+import {PROJECTS_API_ENDPOINT} from "astro:env/server";
 
 type Project = {
   title: string;
@@ -8,56 +9,8 @@ type Project = {
   technologies: string[];
 };
 
-const projects: Project[] = [
-  {
-    title: "sierrapablo-portfolio-api",
-    description: "El código fuente del backend de este sitio web.",
-    link: "https://github.com/sierrapablo/sierrapablo-portfolio-api",
-    technologies: ["Node.js", "Express", "TypeScript"],
-  },
-  {
-    title: "reverse-proxy-monitoring",
-    description: "Proxy inverso con SSL monitorizado con Prometheus y Grafana.",
-    link: "https://github.com/sierrapablo/reverse-proxy-monitoring",
-    technologies: ["Docker", "Shell", "Nginx"],
-  },
-  {
-    title: "log-archive",
-    description: "Aplicación de terminal para archivar logs.",
-    link: "https://github.com/sierrapablo/log-archive",
-    technologies: ["Rust", "Docker"],
-  },
-  {
-    title: "hidalvento-web",
-    description: "Página web para Reformas Hidalvento.",
-    link: "https://github.com/sierrapablo/hidalvento-web",
-    technologies: ["React", "TypeScript", "TailwindCSS"],
-  },
-  {
-    title: "metrio-webpage",
-    description: "Página web para Metrio.",
-    link: "https://github.com/Metrio-ai/metrio-webpage",
-    technologies: ["React", "Javascript", "CSS3"],
-  },
-  {
-    title: "dotfiles",
-    description: "El repositorio de mis dotfiles de Linux.",
-    link: "https://github.com/sierrapablo/dotfiles",
-    technologies: ["Shell", "Lua", "CSS", "Conf"],
-  },
-  {
-    title: "fasealterna-web",
-    description: "Página web para la banda de rock Fase Alterna",
-    link: "https://github.com/sierrapablo/fasealterna-web",
-    technologies: ["Astro", "React", "Typescript", "TailwindCSS"],
-  },
-  {
-    title: "sierrapablo.dev",
-    description: "El código fuente de este sitio web.",
-    link: "https://github.com/sierrapablo/sierrapablo-portfolio",
-    technologies: ["Astro", "TypeScript", "TailwindCSS"],
-  },
-];
+const response = await fetch(PROJECTS_API_ENDPOINT);
+const projects: Project[] = await response.json();
 ---
 
 <section class="flex flex-col items-center flex-1 w-full" transition:animate={slide({ duration: "1s" })}>
