@@ -7,6 +7,15 @@ type SocialLink = {
   name: string;
 };
 
+const { focused } = Astro.props;
+
+const links = [
+  { href: "/sobre-mi", id: "sobre-mi", name: "Sobre mí" },
+  { href: "/proyectos", id: "proyectos", name: "Proyectos" },
+  { href: "/servicios", id: "servicios", name: "Servicios" },
+  { href: "/contacto", id: "contacto", name: "Contacto" },
+];
+
 const socialLinks: SocialLink[] = [
   {
     href: "https://github.com/sierrapablo",
@@ -24,8 +33,6 @@ const socialLinks: SocialLink[] = [
     name: "X",
   }
 ];
-
-const currentPath = Astro.url.pathname;
 ---
 
 <nav class="bg-neutral-100 text-neutral-700 relative">
@@ -43,46 +50,20 @@ const currentPath = Astro.url.pathname;
 
     <!-- Enlaces centrados -->
     <ul class="absolute left-1/2 -translate-x-1/2 flex flex-row gap-4">
-      <li>
-        <a
-          href="/"
-          class={`font-semibold px-2 py-1 rounded-sm transition-colors duration-300 hover:text-blue-500 hover:bg-blue-200 ${
-            currentPath === "/sobre-mi" ? "text-blue-500" : ""
-          }`}
-        >
-          Sobre mí
-        </a>
-      </li>
-      <li>
-        <a
-          href="/proyectos"
-          class={`font-semibold px-2 py-1 rounded-sm transition-colors duration-300 hover:text-blue-500 hover:bg-blue-200 ${
-            currentPath === "/proyectos" ? "text-blue-500" : ""
-          }`}
-        >
-          Proyectos
-        </a>
-      </li>
-      <li>
-        <a
-          href="/"
-          class={`font-semibold px-2 py-1 rounded-sm transition-colors duration-300 hover:text-blue-500 hover:bg-blue-200 ${
-            currentPath === "/servicios" ? "text-blue-500" : ""
-          }`}
-        >
-          Servicios
-        </a>
-      </li>
-      <li>
-        <a
-          href="/"
-          class={`font-semibold px-2 py-1 rounded-sm transition-colors duration-300 hover:text-blue-500 hover:bg-blue-200 ${
-            currentPath === "/contacto" ? "text-blue-500" : ""
-          }`}
-        >
-          Contacto
-        </a>
-      </li>
+      {
+        links.map(({ href, id, name }) => (
+          <li>
+            <a
+              href={href}
+              class={`font-semibold px-2 py-1 rounded-sm transition-colors duration-300 hover:text-blue-500 hover:bg-blue-200 ${
+                focused === id ? "text-blue-500" : ""
+              }`}
+            >
+              {name}
+            </a>
+          </li>
+        ))
+      }
     </ul>
 
     <!-- Enlaces a la derecha con Social -->

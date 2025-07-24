@@ -15,7 +15,7 @@ const HEAD_CONTENT = {
 
 <Layout {...HEAD_CONTENT}>
   <main class="h-dvh flex flex-col">
-    <Navbar />
+    <Navbar focused="proyectos" />
     <ProjectGrid server:defer>
       <span slot="fallback" class="text-xl opacity-70">Cargando...</span>
     </ProjectGrid>
