@@ -1,18 +1,21 @@
-# STAGE 1: BUILD
+# Etapa 1: Build
 FROM node:20-alpine AS builder
+
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci
+
+COPY package.json package-lock.json* ./
+RUN npm ci --omit=dev
 COPY . .
 RUN npm run build
-RUN rm -rf /root/.npm /app/.npm
 
-# STAGE 2: RUNTIME
-FROM node:20-alpine
+# Etapa 2: Producción
+FROM node:20-alpine AS runner
+
 WORKDIR /app
-COPY --from=builder /app/node_modules ./node_modules
+
+# Copiar archivos necesarios desde builder
+COPY --from=builder /app/package.json ./
+RUN npm ci --omit=dev
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package*.json ./
-RUN npm install --omit=dev
-EXPOSE 5173
-CMD ["node", "server.js"]
+
+CMD ["node", "./dist/server/entry.mjs"]

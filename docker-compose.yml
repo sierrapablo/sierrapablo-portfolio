@@ -3,14 +3,10 @@ services:
     build: .
     container_name: portfolio-sierrapablo
     restart: unless-stopped
-    ports:
-      - "5173:5173"
-    volumes:
-      - .:/app
-    environment:
-      - NODE_ENV=production
+    env_file:
+      - .env
     networks:
-        - reverse-proxy
+      - reverse-proxy
 
 networks:
   reverse-proxy:
