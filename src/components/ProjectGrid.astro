@@ -1,5 +1,4 @@
 ---
-import { slide } from "astro:transitions";
 import {PROJECTS_API_ENDPOINT} from "astro:env/server";
 
 type Project = {
@@ -13,7 +12,7 @@ const response = await fetch(PROJECTS_API_ENDPOINT);
 const projects: Project[] = await response.json();
 ---
 
-<section class="flex flex-col items-center flex-1 w-full" transition:animate={slide({ duration: "1s" })}>
+<section class="flex flex-col items-center flex-1 w-full">
   <div class="flex-1 grid gap-4 sm:grid-cols-2">
     {
       projects.map((project) => (
