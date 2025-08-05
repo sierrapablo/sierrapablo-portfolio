@@ -1,10 +1,14 @@
 services:
   frontend:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: portfolio-sierrapablo
     restart: unless-stopped
     env_file:
       - .env
+    environment:
+      NODE_ENV: production
     ports:
       - "4321:4321"
     networks:
