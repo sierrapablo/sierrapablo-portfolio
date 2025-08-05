@@ -12,7 +12,7 @@ const response = await fetch(PROJECTS_API_ENDPOINT);
 const projects: Project[] = await response.json();
 ---
 
-<section class="flex flex-col items-center flex-1 w-full py-2">
+<section class="flex flex-col items-center flex-1 w-full py-2 px-4">
   <div class="flex-1 grid gap-4 sm:grid-cols-2">
     {
       projects.map((project) => (
