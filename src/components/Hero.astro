@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-import avatarImg from "../assets/pfp.webp";
+import avatarImg from "../assets/hero-logo.webp";
 ---
 
 <section class="flex flex-col items-center flex-1 w-full" >
@@ -34,18 +34,14 @@ import avatarImg from "../assets/pfp.webp";
         </a>
       </div>
     </div>
-    <a
-      href="https://github.com/sierrapablo"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <div>
       <Image
         src={avatarImg}
         alt="pfp"
         class="rounded-none"
         loading={"eager"}
       />
-    </a>
+    </div>
   </div>
 
   <!-- Script para efecto tipeado -->

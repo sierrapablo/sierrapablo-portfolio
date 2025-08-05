@@ -1,7 +1,5 @@
 ---
-import Navbar from "../components/Navbar.astro";
 import ProjectGrid from "../components/ProjectGrid.astro";
-import Footer from "../components/Footer.astro";
 import Layout from "../layouts/Layout.astro";
 
 export const prerender = true
@@ -10,15 +8,14 @@ const HEAD_CONTENT = {
   title: "Inicio | Pablo Sierra - Desarrollador web",
   description:
     "Bienvenido a la página personal de Pablo Sierra, desarrollador de software con enfoque en big data y frontend moderno.",
+  focused: "proyectos",
 };
 ---
 
 <Layout {...HEAD_CONTENT}>
-  <main class="h-dvh flex flex-col">
-    <Navbar focused="proyectos" />
+  <main class="flex flex-1 flex-col justify-center items-center">
     <ProjectGrid server:defer>
       <span slot="fallback" class="text-xl opacity-70">Cargando...</span>
     </ProjectGrid>
-    <Footer />
   </main>
 </Layout>
