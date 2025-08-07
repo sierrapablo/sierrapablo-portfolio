@@ -10,7 +10,7 @@ services:
     environment:
       NODE_ENV: production
     ports:
-      - "4321:4321"
+      - '4321:4321'
     networks:
       - reverse-proxy
 
