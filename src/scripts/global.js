@@ -1,11 +1,11 @@
-import { startTyping } from './typewriter.js'
+import { startTyping } from './typewriter.js';
 
 function initTypewriter () {
-  const el = document.getElementById('typed')
+  const el = document.getElementById('typed');
   if (el) {
-    startTyping()
+    startTyping();
   }
 }
 
-document.addEventListener('DOMContentLoaded', initTypewriter)
-document.addEventListener('astro:after-swap', initTypewriter)
+document.addEventListener('DOMContentLoaded', initTypewriter);
+document.addEventListener('astro:after-swap', initTypewriter);

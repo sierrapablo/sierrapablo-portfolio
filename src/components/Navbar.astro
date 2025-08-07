@@ -1,7 +1,7 @@
 ---
-import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import logo from "../assets/hero-logo.webp";
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import logo from '../assets/hero-logo.webp';
 
 type SocialLink = {
   href: string;
@@ -12,35 +12,33 @@ type SocialLink = {
 const { focused } = Astro.props;
 
 const links = [
-  { href: "/", id: "inicio", name: "Inicio" },
-  { href: "/proyectos", id: "proyectos", name: "Proyectos" },
-  { href: "/servicios", id: "servicios", name: "Servicios" },
-  { href: "/contacto", id: "contacto", name: "Contacto" },
+  { href: '/', id: 'inicio', name: 'Inicio' },
+  { href: '/proyectos', id: 'proyectos', name: 'Proyectos' },
+  { href: '/servicios', id: 'servicios', name: 'Servicios' },
+  { href: '/contacto', id: 'contacto', name: 'Contacto' },
 ];
 
 const socialLinks: SocialLink[] = [
   {
-    href: "https://github.com/sierrapablo",
-    iconName: "fa7-brands:github",
-    name: "GitHub",
+    href: 'https://github.com/sierrapablo',
+    iconName: 'fa7-brands:github',
+    name: 'GitHub',
   },
   {
-    href: "https://instagram.com/itspabloagain",
-    iconName: "fa7-brands:instagram",
-    name: "Instagram",
+    href: 'https://instagram.com/itspabloagain',
+    iconName: 'fa7-brands:instagram',
+    name: 'Instagram',
   },
   {
-    href: "https://x.com/slpslpsl",
-    iconName: "fa7-brands:x-twitter",
-    name: "X",
+    href: 'https://x.com/slpslpsl',
+    iconName: 'fa7-brands:x-twitter',
+    name: 'X',
   },
 ];
 ---
 
 <nav class="bg-neutral-100/70 text-neutral-700 sticky top-0 z-50 backdrop-blur">
-  <div
-    class="max-w-screen-xl mx-auto px-4 flex items-center justify-between py-6 relative"
-  >
+  <div class="max-w-screen-xl mx-auto px-4 flex items-center justify-between py-6 relative">
     <!-- Placeholder vacío -->
     <div class="w-8"></div>
 
@@ -52,7 +50,7 @@ const socialLinks: SocialLink[] = [
             <a
               href={href}
               class={`font-semibold px-2 py-1 rounded-sm transition-colors duration-300 hover:text-blue-500 hover:bg-blue-200 ${
-                focused === id ? "text-blue-500" : ""
+                focused === id ? 'text-blue-500' : ''
               }`}
             >
               {name}

@@ -1,7 +1,7 @@
 ---
-import { ClientRouter } from "astro:transitions";
-import { type ImageMetadata } from "astro";
-import FallbackImage from "../assets/background.svg";
+import { ClientRouter } from 'astro:transitions';
+import { type ImageMetadata } from 'astro';
+import FallbackImage from '../assets/background.svg';
 
 interface HeadProps {
   title: string;
@@ -14,31 +14,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, image = FallbackImage } = Astro.props as HeadProps;
 
 const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Pablo Sierra",
-  jobTitle: "Ingeniero de software y desarrollador web",
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Pablo Sierra',
+  jobTitle: 'Ingeniero de software y desarrollador web',
   image: `${Astro.site}/profile.jpg`,
   description: description,
-  url: "https://sierrapablo.dev",
-  sameAs: [
-    "https://www.instagram.com/itspabloagain",
-    "https://github.com/sierrapablo",
-  ],
+  url: 'https://sierrapablo.dev',
+  sameAs: ['https://www.instagram.com/itspabloagain', 'https://github.com/sierrapablo'],
   address: {
-    "@type": "PostalAddress",
-    addressLocality: "Valencia",
-    addressCountry: "ES",
+    '@type': 'PostalAddress',
+    addressLocality: 'Valencia',
+    addressCountry: 'ES',
   },
   worksFor: {
-    "@type": "Organization",
-    name: "Metrio",
-    url: "https://metrio.es",
+    '@type': 'Organization',
+    name: 'Metrio',
+    url: 'https://metrio.es',
   },
   alumniOf: {
-    "@type": "Organization",
-    name: "Universidad Politécnica de Valencia",
-    url: "https://www.upv.es",
+    '@type': 'Organization',
+    name: 'Universidad Politécnica de Valencia',
+    url: 'https://www.upv.es',
   },
 };
 ---

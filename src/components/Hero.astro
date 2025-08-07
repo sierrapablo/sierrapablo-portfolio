@@ -1,7 +1,7 @@
 ---
-import { Image } from "astro:assets";
+import { Image } from 'astro:assets';
 
-import avatarImg from "../assets/hero-logo.webp";
+import avatarImg from '../assets/hero-logo.webp';
 ---
 
 <section class="flex flex-col items-center flex-1 w-full">
@@ -14,9 +14,7 @@ import avatarImg from "../assets/hero-logo.webp";
         <span class="text-blue-500">desafíos en oportunidades.</span>
       </p>
       <p class="min-h-32 text-lg text-neutral-700 font-semibold">
-        <span
-          id="typed"
-          class="after:content-['|'] after:animate-blink after:ml-[2px]"></span>
+        <span id="typed" class="after:content-['|'] after:animate-blink after:ml-[2px]"></span>
       </p>
       <div class="flex flex-row justify-center gap-2">
         <a
@@ -28,12 +26,7 @@ import avatarImg from "../assets/hero-logo.webp";
       </div>
     </div>
     <div class="w-full md:flex-1 flex justify-center">
-      <Image
-        src={avatarImg}
-        alt="pfp"
-        class="rounded-none w-full h-auto"
-        loading={"eager"}
-      />
+      <Image src={avatarImg} alt="pfp" class="rounded-none w-full h-auto" loading={'eager'} />
     </div>
   </div>
 

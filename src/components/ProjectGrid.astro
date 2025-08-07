@@ -1,5 +1,5 @@
 ---
-import {PROJECTS_API_ENDPOINT} from "astro:env/server";
+import { PROJECTS_API_ENDPOINT } from 'astro:env/server';
 
 type Project = {
   title: string;
@@ -23,16 +23,12 @@ const projects: Project[] = await response.json();
           class="bg-neutral-100 p-2 shadow rounded-md gap-2 duration-200 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-white flex flex-col justify-between transition-all"
         >
           <div>
-            <h3 class="text-lg text-blue-500 font-bold mb-1">
-              {project.title}
-            </h3>
+            <h3 class="text-lg text-blue-500 font-bold mb-1">{project.title}</h3>
             <p class="text-sm text-neutral-700 mb-2">{project.description}</p>
           </div>
           <div class="mt-auto text-xs text-gray-500 flex gap-2 flex-wrap">
             {project.technologies.map((tech) => (
-              <span class="bg-blue-200 text-neutral-800 rounded px-2 py-0.5">
-                {tech}
-              </span>
+              <span class="bg-blue-200 text-neutral-800 rounded px-2 py-0.5">{tech}</span>
             ))}
           </div>
         </a>
