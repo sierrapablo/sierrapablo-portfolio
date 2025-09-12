@@ -1,10 +1,10 @@
-const messages: string[] = [
+const messages = [
   'Desarrollador de software freelance.',
   'Automatizo procesos, creo herramientas, despliego y mantengo infraestructuras.',
   'Explora mis proyectos.',
 ];
 
-export function startTyping(): void {
+export function startTyping() {
   const el = document.getElementById('typed');
   if (!el) return;
 
@@ -13,7 +13,7 @@ export function startTyping(): void {
   let messageIndex = 0;
   let charIndex = 0;
 
-  function type(): void {
+  function type() {
     if (!el) return;
 
     if (charIndex < messages[messageIndex].length) {

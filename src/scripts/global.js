@@ -1,6 +1,6 @@
-import { startTyping } from './typewriter.ts';
+import { startTyping } from './typewriter.js';
 
-function initTypewriter(): void {
+function initTypewriter() {
   const el = document.getElementById('typed');
   if (el) {
     startTyping();
