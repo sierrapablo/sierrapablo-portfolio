@@ -1,7 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { Image } from 'astro:assets';
-import logo from '../assets/hero-logo.webp';
 
 type SocialLink = {
   href: string;
@@ -11,12 +9,7 @@ type SocialLink = {
 
 const { focused } = Astro.props;
 
-const links = [
-  { href: '/', id: 'inicio', name: 'Inicio' },
-  { href: '/proyectos', id: 'proyectos', name: 'Proyectos' },
-  { href: '/servicios', id: 'servicios', name: 'Servicios' },
-  { href: '/contacto', id: 'contacto', name: 'Contacto' },
-];
+const links = [{ href: '/', id: 'inicio', name: 'Inicio' }];
 
 const socialLinks: SocialLink[] = [
   {
