@@ -24,3 +24,6 @@ pnpm-debug.log*
 .idea/
 
 gitzen.config.json
+
+# vscode setting folder
+.vscode/
