@@ -9,7 +9,10 @@ type SocialLink = {
 
 const { focused } = Astro.props;
 
-const links = [{ href: '/', id: 'inicio', name: 'Inicio' }];
+const links = [
+  { href: '/', id: 'inicio', name: 'Inicio' },
+  { href: '/blog', id: 'blog', name: 'Blog' },
+];
 
 const socialLinks: SocialLink[] = [
   {
@@ -30,7 +33,7 @@ const socialLinks: SocialLink[] = [
 ];
 ---
 
-<nav class="bg-neutral-100/70 text-neutral-700 sticky top-0 z-50 backdrop-blur">
+<nav class="text-neutral-700 sticky top-0 z-50 backdrop-blur">
   <div class="max-w-screen-xl mx-auto px-4 flex items-center justify-between py-6 relative">
     <!-- Placeholder vacío -->
     <div class="w-8"></div>
