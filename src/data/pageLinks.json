@@ -1,0 +1,12 @@
+[
+  {
+    "href": "/",
+    "id": "inicio",
+    "name": "Inicio"
+  },
+  {
+    "href": "/proyectos",
+    "id": "proyectos",
+    "name": "Proyectos"
+  }
+]

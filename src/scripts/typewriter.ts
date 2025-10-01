@@ -1,8 +1,4 @@
-const messages: string[] = [
-  'Desarrollador de software freelance.',
-  'Automatizo procesos, creo herramientas, despliego y mantengo infraestructuras.',
-  'Explora mi blog.',
-];
+import { messages } from '../data/typewriter.ts';
 
 export function startTyping() {
   const el = document.getElementById('typed');
