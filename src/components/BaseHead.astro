@@ -1,13 +1,7 @@
 ---
 import { ClientRouter } from 'astro:transitions';
-import { type ImageMetadata } from 'astro';
-import FallbackImage from '../assets/background.svg';
-
-interface HeadProps {
-  title: string;
-  description: string;
-  image?: ImageMetadata;
-}
+import FallbackImage from '../assets/hero-logo.webp';
+import type { HeadProps } from '../types/head.ts';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -18,7 +12,6 @@ const jsonLd = {
   '@type': 'Person',
   name: 'Pablo Sierra',
   jobTitle: 'Ingeniero de software y desarrollador web',
-  image: `${Astro.site}/profile.jpg`,
   description: description,
   url: 'https://sierrapablo.dev',
   sameAs: ['https://www.instagram.com/itspabloagain', 'https://github.com/sierrapablo'],
@@ -30,7 +23,7 @@ const jsonLd = {
   worksFor: {
     '@type': 'Organization',
     name: 'Metrio',
-    url: 'https://metrio.es',
+    url: 'https://www.metrio.es',
   },
   alumniOf: {
     '@type': 'Organization',
@@ -64,7 +57,7 @@ const jsonLd = {
 
   <title>{title}</title>
 
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <ClientRouter />
 </head>

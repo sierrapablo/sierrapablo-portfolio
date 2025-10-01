@@ -1,13 +1,7 @@
 ---
 import Hero from '../components/Hero.astro';
 import Layout from '../layouts/Layout.astro';
-
-const HEAD_CONTENT = {
-  title: 'Inicio | Pablo Sierra - Desarrollador web',
-  description:
-    'Bienvenido a la página personal de Pablo Sierra, desarrollador de software con enfoque en big data y frontend moderno.',
-  focused: 'inicio',
-};
+import HEAD_CONTENT from '../data/index.json';
 ---
 
 <Layout {...HEAD_CONTENT}>
